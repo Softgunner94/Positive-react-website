@@ -1,0 +1,632 @@
+/* ═══════════════════════════════════════════════════════════
+   Positive Professional Services — Why Choose Us Section
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ── CSS Variables ──────────────────────────────────────── */
+:root {
+  --wcu-green:          #1a6b3a;
+  --wcu-green-dark:     #0d3d20;
+  --wcu-green-mid:      #145c30;
+  --wcu-green-light:    #e8f7ee;
+  --wcu-green-pale:     #f2fbf5;
+  --wcu-green-hover:    #d4f0e0;
+  --wcu-green-deep:     #c2e8d0;
+  --wcu-green-border:   rgba(26, 107, 58, 0.18);
+  --wcu-gold:           #c8a84b;
+  --wcu-gold-dim:       rgba(200, 168, 75, 0.14);
+  --wcu-gold-border:    rgba(200, 168, 75, 0.38);
+  --wcu-text-dark:      #0d1f14;
+  --wcu-text-body:      #2d4a38;
+  --wcu-text-muted:     #4a6b55;
+  --wcu-text-light:     #6b8f78;
+  --wcu-white:          #ffffff;
+  --wcu-bg:             #f5faf7;
+  --wcu-border:         #d8ede1;
+  --wcu-border-card:    #e2f0e8;
+  --wcu-shadow-sm:      0 2px 12px rgba(13, 61, 32, 0.07);
+  --wcu-shadow-md:      0 8px 32px rgba(13, 61, 32, 0.12);
+  --wcu-shadow-lg:      0 20px 56px rgba(13, 61, 32, 0.18);
+  --wcu-shadow-icon:    0 8px 28px rgba(26, 107, 58, 0.20);
+
+  --font-display:       'Playfair Display', serif;
+  --font-serif:         'Cormorant Garamond', serif;
+  --font-sans:          'DM Sans', sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION WRAPPER
+   — pale green background, full-width, generous padding
+══════════════════════════════════════════════════════════ */
+.wcu-section {
+  width: 100%;
+  background: var(--wcu-bg);
+  padding: 88px 0 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Fine dot-grid texture */
+.wcu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(26, 107, 58, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Soft green radial glow — top center */
+.wcu-section::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse,
+    rgba(26, 107, 58, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CONTAINER
+   — constrains max-width, centres horizontally
+══════════════════════════════════════════════════════════ */
+.wcu-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════════════════ */
+.wcu__header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* "BENEFITS" eyebrow */
+.wcu__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--wcu-green);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.wcu__eyebrow::before,
+.wcu__eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--wcu-gold));
+}
+
+.wcu__eyebrow::after {
+  background: linear-gradient(90deg, var(--wcu-gold), transparent);
+}
+
+/* Main heading */
+.wcu__heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  color: var(--wcu-text-dark);
+  line-height: 1.18;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+/* Accent word underline */
+.wcu__heading-accent {
+  position: relative;
+  color: var(--wcu-green);
+  display: inline-block;
+}
+
+.wcu__heading-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--wcu-gold), var(--wcu-green));
+  border-radius: 2px;
+}
+
+/* Subtitle */
+.wcu__subtitle {
+  font-size: 15px;
+  color: var(--wcu-text-muted);
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* Gold diamond divider */
+.wcu__divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.wcu__divider-line {
+  width: 64px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--wcu-border));
+}
+
+.wcu__divider-line--right {
+  background: linear-gradient(90deg, var(--wcu-border), transparent);
+}
+
+.wcu__divider-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--wcu-gold);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BENEFITS GRID
+   — 6 items, 3 per row on desktop, centered layout
+══════════════════════════════════════════════════════════ */
+.wcu__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BENEFIT CARD
+══════════════════════════════════════════════════════════ */
+.wcu__card {
+  position: relative;
+  background: var(--wcu-white);
+  border: 1px solid var(--wcu-border-card);
+  border-radius: 18px;
+  padding: 36px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  box-shadow: var(--wcu-shadow-sm);
+  overflow: hidden;
+  cursor: default;
+  transition:
+    transform 0.30s ease,
+    box-shadow 0.30s ease,
+    border-color 0.30s ease;
+  animation: wcuFadeUp 0.65s ease both;
+}
+
+/* Staggered card entrance */
+.wcu__card:nth-child(1) { animation-delay: 0.06s; }
+.wcu__card:nth-child(2) { animation-delay: 0.16s; }
+.wcu__card:nth-child(3) { animation-delay: 0.26s; }
+.wcu__card:nth-child(4) { animation-delay: 0.36s; }
+.wcu__card:nth-child(5) { animation-delay: 0.46s; }
+.wcu__card:nth-child(6) { animation-delay: 0.56s; }
+
+@keyframes wcuFadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover lift */
+.wcu__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--wcu-shadow-lg);
+  border-color: var(--wcu-green-border);
+}
+
+/* Green-gold top border on hover */
+.wcu__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--wcu-green), var(--wcu-gold));
+  border-radius: 18px 18px 0 0;
+  opacity: 0;
+  transition: opacity 0.30s ease;
+  z-index: 1;
+}
+
+.wcu__card:hover::before {
+  opacity: 1;
+}
+
+/* Bottom-right soft blob */
+.wcu__card::after {
+  content: '';
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(26, 107, 58, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Icon wrapper ────────────────────────────────────────── */
+.wcu__card-icon-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+/* Outer pulse ring */
+.wcu__card-icon-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(26, 107, 58, 0.14);
+  transition: border-color 0.30s ease, inset 0.30s ease;
+}
+
+.wcu__card:hover .wcu__card-icon-wrap::before {
+  inset: -12px;
+  border-color: var(--wcu-gold-border);
+}
+
+/* Inner icon circle */
+.wcu__card-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    var(--wcu-green-pale) 0%,
+    var(--wcu-green-light) 100%
+  );
+  border: 2px solid var(--wcu-border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: var(--wcu-shadow-icon);
+  transition:
+    background 0.30s ease,
+    transform 0.30s ease,
+    box-shadow 0.30s ease;
+}
+
+.wcu__card:hover .wcu__card-icon {
+  background: linear-gradient(
+    145deg,
+    var(--wcu-green-light) 0%,
+    var(--wcu-green-hover) 100%
+  );
+  transform: scale(1.10) rotate(-4deg);
+  box-shadow: 0 12px 36px rgba(26, 107, 58, 0.26);
+}
+
+/* ── Card text ───────────────────────────────────────────── */
+.wcu__card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+  position: relative;
+}
+
+.wcu__card-title {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--wcu-text-dark);
+  line-height: 1.3;
+  margin: 0;
+  transition: color 0.24s ease;
+}
+
+.wcu__card:hover .wcu__card-title {
+  color: var(--wcu-green);
+}
+
+.wcu__card-desc {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--wcu-text-muted);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 200px;
+}
+
+/* ── Green check badge ───────────────────────────────────── */
+.wcu__card-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--wcu-green-light);
+  border: 1.5px solid var(--wcu-green-border);
+  color: var(--wcu-green);
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: background 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
+}
+
+.wcu__card:hover .wcu__card-check {
+  background: var(--wcu-green);
+  color: var(--wcu-white);
+  border-color: var(--wcu-green);
+  transform: scale(1.15) rotate(10deg);
+}
+
+/* ══════════════════════════════════════════════════════════
+   CTA STRIP
+   — full-width green banner at the bottom
+══════════════════════════════════════════════════════════ */
+.wcu__cta-strip {
+  margin-top: 64px;
+  padding: 32px 40px;
+  background: linear-gradient(
+    135deg,
+    var(--wcu-green-dark) 0%,
+    var(--wcu-green) 55%,
+    var(--wcu-green-mid) 100%
+  );
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(13, 61, 32, 0.22);
+}
+
+/* Decorative rings inside strip */
+.wcu__cta-strip::before {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.10);
+  pointer-events: none;
+}
+
+.wcu__cta-strip::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.wcu__cta-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.wcu__cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--wcu-white);
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.wcu__cta-sub {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.wcu__cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Primary CTA button */
+.wcu__cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--wcu-gold);
+  color: var(--wcu-green-dark);
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(200, 168, 75, 0.30);
+}
+
+.wcu__cta-btn-primary:hover {
+  background: #d4b45a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 168, 75, 0.42);
+  color: var(--wcu-green-dark);
+}
+
+/* Secondary CTA button */
+.wcu__cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--wcu-white);
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  border: 1.5px solid rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+}
+
+.wcu__cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.70);
+  transform: translateY(-2px);
+  color: var(--wcu-white);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .wcu-section {
+    padding: 64px 0 76px;
+  }
+
+  .wcu-container {
+    padding: 0 24px;
+  }
+
+  .wcu__header {
+    margin-bottom: 44px;
+  }
+
+  .wcu__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .wcu__cta-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 28px;
+    gap: 20px;
+  }
+
+  .wcu__cta-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .wcu-section {
+    padding: 48px 0 60px;
+  }
+
+  .wcu-container {
+    padding: 0 16px;
+  }
+
+  .wcu__header {
+    margin-bottom: 36px;
+  }
+
+  .wcu__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .wcu__card {
+    padding: 26px 16px 24px;
+    gap: 14px;
+    border-radius: 14px;
+  }
+
+  .wcu__card-icon-wrap {
+    width: 66px;
+    height: 66px;
+  }
+
+  .wcu__card-icon {
+    font-size: 26px;
+  }
+
+  .wcu__card-title {
+    font-size: 13.5px;
+  }
+
+  .wcu__cta-strip {
+    padding: 22px 20px;
+    border-radius: 14px;
+    margin-top: 44px;
+  }
+
+  .wcu__cta-btn-primary,
+  .wcu__cta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wcu__cta-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .wcu__grid {
+    grid-template-columns: 1fr;
+  }
+}

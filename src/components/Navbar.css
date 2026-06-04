@@ -1,0 +1,460 @@
+/* ═══════════════════════════════════════════════════════════
+   Positive Professional Services — React Router Navbar
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ── CSS Variables ──────────────────────────────────────── */
+:root {
+  --nav-green:        #1a6b3a;
+  --nav-green-dark:   #0d3d20;
+  --nav-green-mid:    #145c30;
+  --nav-green-light:  #e8f7ee;
+  --nav-green-pale:   #f2fbf5;
+  --nav-green-hover:  #f4fbf6;
+  --nav-gold:         #c8a84b;
+  --nav-gold-dim:     rgba(200, 168, 75, 0.14);
+  --nav-gold-border:  rgba(200, 168, 75, 0.38);
+  --nav-text:         #2d4a38;
+  --nav-text-muted:   #4a6b55;
+  --nav-text-light:   #d4eddf;
+  --nav-text-faint:   #a0c8b0;
+  --nav-white:        #ffffff;
+  --nav-border:       #e8f3ec;
+  --nav-divider:      rgba(74, 140, 92, 0.55);
+  --nav-shadow-sm:    0 2px 8px rgba(0, 0, 0, 0.06);
+  --nav-shadow-md:    0 4px 24px rgba(26, 107, 58, 0.11);
+
+  --font-display:     'Playfair Display', serif;
+  --font-serif:       'Cormorant Garamond', serif;
+  --font-sans:        'DM Sans', sans-serif;
+  --font-mono:        monospace;
+
+  --topbar-height:    38px;
+  --navbar-height:    72px;
+  --total-offset:     110px; /* topbar + navbar */
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAVBAR ROOT WRAPPER
+   Wraps both topbar + main nav; fixed to viewport top
+══════════════════════════════════════════════════════════ */
+.navbar-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: var(--font-sans);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MAIN NAVBAR
+══════════════════════════════════════════════════════════ */
+.navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--nav-green-light);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--nav-shadow-sm);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: var(--nav-shadow-md);
+}
+
+.navbar__inner {
+  max-width: 1200px;
+  width: 100%;
+  height: 72px;
+  margin: 0px auto;
+  padding: 0px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LOGO
+══════════════════════════════════════════════════════════ */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo-badge {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.navbar__logo-circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--nav-green);
+  background: rgba(26, 107, 58, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__logo-letter {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--nav-green);
+  line-height: 1;
+}
+
+.navbar__logo-chart {
+  position: absolute;
+  bottom: 5px;
+  right: 3px;
+}
+
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__logo-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--nav-green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.navbar__logo-sub {
+  font-family: var(--font-serif);
+  font-size: 8px;
+  color: var(--nav-text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.navbar__logo-rc {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  color: #7aaa8a;
+  letter-spacing: 0.4px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DESKTOP NAV LINKS
+══════════════════════════════════════════════════════════ */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 600px;
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 13px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--nav-text);
+  text-decoration: none;
+  border-radius: 6px;
+  letter-spacing: 0.15px;
+  transition: background 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+.navbar__link:hover {
+  background: var(--nav-green-hover);
+  color: var(--nav-green);
+}
+
+/* React Router active state */
+.navbar__link.active {
+  color: var(--nav-green);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--nav-green-light), var(--nav-green-pale));
+}
+
+/* Active underline */
+.navbar__link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--nav-green), var(--nav-gold));
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CTA BUTTON
+══════════════════════════════════════════════════════════ */
+.navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--nav-green)      0%,
+    var(--nav-green-mid)  100%
+  );
+  color: var(--nav-white);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  letter-spacing: 0.2px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 14px rgba(26, 107, 58, 0.28);
+  transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar__cta:hover {
+  background: linear-gradient(
+    135deg,
+    var(--nav-green-mid)  0%,
+    var(--nav-green-dark) 100%
+  );
+  box-shadow: 0 5px 20px rgba(26, 107, 58, 0.38);
+  transform: translateY(-1px);
+  color: var(--nav-white);
+}
+
+.navbar__cta-arrow {
+  font-size: 11px;
+  opacity: 0.80;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HAMBURGER BUTTON
+══════════════════════════════════════════════════════════ */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: 1.5px solid rgba(26, 107, 58, 0.28);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px 10px;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.navbar__hamburger:hover {
+  background: var(--nav-green-light);
+  border-color: var(--nav-green);
+}
+
+.navbar__hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--nav-green);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.navbar__hamburger--open .navbar__hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger--open .navbar__hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger--open .navbar__hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE MENU DRAWER
+══════════════════════════════════════════════════════════ */
+.mobile-menu {
+  position: fixed;
+  top: var(--total-offset);
+  left: 0;
+  width: 100%;
+  background: var(--nav-white);
+  border-top: 2px solid var(--nav-gold);
+  box-shadow: 0 8px 32px rgba(13, 61, 32, 0.14);
+  z-index: 999;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.28s ease;
+  opacity: 0;
+}
+
+.mobile-menu--open {
+  max-height: 520px;
+  opacity: 1;
+}
+
+.mobile-menu__inner {
+  padding: 12px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Mobile nav links */
+.mobile-menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--nav-text);
+  text-decoration: none;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+              padding-left 0.18s ease;
+}
+
+.mobile-menu__link:hover {
+  background: var(--nav-green-hover);
+  color: var(--nav-green);
+  padding-left: 18px;
+}
+
+.mobile-menu__link.active {
+  color: var(--nav-green);
+  font-weight: 600;
+  background: var(--nav-green-light);
+  border-left-color: var(--nav-green);
+  padding-left: 18px;
+}
+
+.mobile-menu__link-arrow {
+  font-size: 13px;
+  opacity: 0.35;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.mobile-menu__link:hover .mobile-menu__link-arrow,
+.mobile-menu__link.active .mobile-menu__link-arrow {
+  opacity: 0.75;
+  transform: translateX(3px);
+  color: var(--nav-green);
+}
+
+/* Mobile divider */
+.mobile-menu__divider {
+  height: 1px;
+  background: var(--nav-border);
+  margin: 8px 0;
+  border: none;
+}
+
+/* Mobile CTA */
+.mobile-menu__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, var(--nav-green), var(--nav-green-mid));
+  color: var(--nav-white);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 4px 16px rgba(26, 107, 58, 0.24);
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.mobile-menu__cta:hover {
+  background: linear-gradient(135deg, var(--nav-green-mid), var(--nav-green-dark));
+  transform: translateY(-1px);
+  color: var(--nav-white);
+}
+
+/* ══════════════════════════════════════════════════════════
+   PAGE OFFSET SPACER
+   Push page content below the fixed navbar
+══════════════════════════════════════════════════════════ */
+.navbar-spacer {
+  height: var(--total-offset);
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════════════════════ */
+
+/* Large desktop — full layout */
+@media (min-width: 1201px) {
+  .navbar__inner { padding: 0 48px; }
+}
+
+/* Standard desktop — hide hamburger, show links */
+@media (min-width: 993px) {
+  .navbar__hamburger { display: none; }
+  .navbar__links     { display: flex; }
+  .navbar__cta       { display: inline-flex; }
+}
+
+/* Tablet / small desktop — show hamburger */
+@media (max-width: 992px) {
+  .navbar__hamburger { display: flex; }
+  .navbar__links     { display: none; }
+  .navbar__cta       { display: none; }
+  .navbar__inner     { padding: 0 20px; }
+}
+
+/* Mobile — compact topbar */
+@media (max-width: 640px) {
+  :root {
+    --navbar-height:  62px;
+    --total-offset:   96px;
+  }
+  .navbar__logo-badge { width: 42px; height: 42px; }
+  .navbar__logo-letter { font-size: 22px; }
+  .navbar__logo-name  { font-size: 13px; }
+  .navbar__inner { padding: 0 14px; }
+
+  .mobile-menu__link  { font-size: 14px; padding: 11px 12px; }
+}
+
+/* Extra small — 320px and up */
+@media (max-width: 380px) {
+  .navbar__inner { padding: 14px; }
+  .navbar__logo-sub,
+  .navbar__logo-rc { display: none; }
+}
