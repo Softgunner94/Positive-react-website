@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Banner.css";
-import Logo from "/chart.png"
+import Chart from "/chart.png"
+import { Link } from "react-router-dom";
 
 // ─── The exact image from the website UI ─────────────────────────────────────
 // Using a professional accounting/finance stock photo that matches the website:
@@ -41,16 +42,16 @@ export default function Banner() {
           {/* CTA Buttons */}
           <div className="banner__actions">
             {/* Primary */}
-            <a href="#consultation" className="banner__btn-primary">
+            <Link to="/contact" className="banner__btn-primary">
               Request Consultation
               <span className="btn-icon" aria-hidden="true">›</span>
-            </a>
+            </Link>
 
             {/* Secondary */}
-            <a href="#services" className="banner__btn-secondary">
+            <Link to="/services" className="banner__btn-secondary">
               Our Services
               <span className="btn-circle" aria-hidden="true">›</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -73,7 +74,7 @@ export default function Banner() {
           <div className="banner__image-frame">
             {!imgError ? (
               <img
-                src={Logo}
+                src={Chart}
                 alt="Accounting workspace with laptop showing financial charts, calculator and documents"
                 onError={() => setImgError(true)}
               />

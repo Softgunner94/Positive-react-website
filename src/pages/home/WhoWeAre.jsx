@@ -111,4 +111,4 @@ export default function WhoWeAre() {
       </div>
     </section>
   );
-}
+}1

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 // Import every page
@@ -24,7 +24,9 @@ export default function AppRouter() {
       <Routes>
         <Route path="/"          element={<HomePage />}     />
         <Route path="/about"     element={<AboutPage />}    />
-        <Route path="/services"  element={<ServicesPage />} />
+        <Route path="/services"  element={<ServicesPage />} />`
+        <Route path="/services" element={<Navigate to="/services/audit-assurance" replace />} />
+        <Route path="/services/:slug" element={<ServicesPage />} />`
         <Route path="/approach"  element={<ApproachPage />} />
         <Route path="/benefits"  element={<BenefitsPage />} />
         <Route path="/contact"   element={<ContactPage />}  />

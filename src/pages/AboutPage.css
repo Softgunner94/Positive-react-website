@@ -1,0 +1,306 @@
+/* ============================================================
+   AboutSections.css  —  Mission & Value Delivered Sections
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --accent:        #2d8a4e;
+  --accent-dark:   #1e6b3a;
+  --accent-soft:   rgba(45, 138, 78, 0.08);
+  --accent-rule:   rgba(45, 138, 78, 0.6);
+  --text-dark:     #0f1a13;
+  --text-body:     #3a4a3e;
+  --text-muted:    #7a8f80;
+  --bg-light:      #f5f8f6;
+  --bg-white:      #ffffff;
+  --border-soft:   rgba(45, 138, 78, 0.12);
+  --shadow-img:    0 16px 56px rgba(15, 26, 19, 0.14);
+  --shadow-hover:  0 24px 72px rgba(15, 26, 19, 0.20);
+  --radius-img:    18px;
+  --transition:    0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  --section-gap:   96px;
+  --col-gap:       72px;
+}
+
+/* ── Wrapper ───────────────────────────────────────────────── */
+.about-wrapper {
+  font-family: 'DM Sans', sans-serif;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Section base ──────────────────────────────────────────── */
+.about-section {
+  padding: var(--section-gap) 0;
+  position: relative;
+}
+
+/* Alternating backgrounds */
+.mission-section { background: var(--bg-white); }
+.value-section   { background: var(--bg-light); }
+
+/* subtle top divider */
+.value-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ── Container — two equal columns ────────────────────────── */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  align-items: center;
+}
+
+/* Reverse column order for value section */
+.about-container-reverse {
+  
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  gap: var(--col-gap);
+  align-items: center;
+    
+  ;    /* flips children visually */
+}
+.about-container.reverse > * {
+  direction: ltr;           /* restore normal text direction inside */
+}
+
+/* ── Text Column ───────────────────────────────────────────── */
+.about-text-col {
+  display: flex;
+  align-items: center;
+}
+
+.text-inner {
+  max-width: 500px;
+}
+
+/* Eyebrow */
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  background: var(--accent-soft);
+  border-radius: 50px;
+  border: 1px solid var(--border-soft);
+}
+
+/* Heading */
+.section-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+
+/* Decorative rule under heading */
+.heading-rule {
+  width: 52px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  
+}
+
+/* Body text */
+.section-body {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+
+.section-body em {
+  font-style: italic;
+  color: var(--accent-dark);
+  font-weight: 500;
+}
+
+/* CTA link */
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--transition), border-color var(--transition), gap var(--transition);
+}
+
+.about-cta:hover {
+  color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  gap: 12px;
+}
+
+/* ── Image Column ──────────────────────────────────────────── */
+.about-image-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Decorative background blob behind image */
+.about-image-col::before {
+  content: '';
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  z-index: 0;
+  filter: blur(48px);
+}
+
+/* Frame wraps the image + accent squares */
+.image-frame {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+/* ── THE IMAGE ─────────────────────────────────────────────── */
+.about-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;           /* fills frame, no stretch, crops edges */
+  object-position: center top; /* keeps faces visible                   */
+  display: block;
+  border-radius: var(--radius-img);
+  box-shadow: var(--shadow-img);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.about-img:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Value section image — object-fit contain so the coin isn't cropped */
+.value-img {
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  box-shadow: none;
+  height: 380px;
+  filter: drop-shadow(0 20px 48px rgba(15, 26, 19, 0.18));
+  
+}
+
+.value-img:hover {
+  box-shadow: none;
+  filter: drop-shadow(0 28px 64px rgba(15, 26, 19, 0.26));
+}
+
+/* ── Decorative accent squares ─────────────────────────────── */
+.image-accent {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 3px solid var(--accent);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.image-accent--br {
+  bottom: -18px;
+  right: -18px;
+}
+
+.image-accent--tl {
+  top: -18px;
+  left: -18px;
+}
+
+/* ── Responsive — Tablet (≤ 900px) ────────────────────────── */
+@media (max-width: 900px) {
+  :root {
+    --section-gap: 64px;
+    --col-gap: 40px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* On tablet, reverse section keeps image on top */
+  .about-container.reverse {
+    direction: ltr;
+  }
+
+  /* Image column always full width */
+  .about-image-col {
+    width: 100%;
+  }
+
+  .about-img {
+    height: 340px;
+  }
+
+  .value-img {
+    height: 300px;
+  }
+
+  .text-inner {
+    max-width: 100%;
+  }
+}
+
+/* ── Responsive — Mobile (≤ 600px) ────────────────────────── */
+@media (max-width: 600px) {
+  :root { --section-gap: 48px; }
+
+  .about-container {
+    padding: 0 20px;
+  }
+
+  .about-img {
+    height: 260px;
+    border-radius: 12px;
+  }
+
+  .value-img {
+    height: 220px;
+  }
+
+  .image-accent {
+    width: 48px;
+    height: 48px;
+  }
+
+  .image-accent--br { bottom: -10px; right: -10px; }
+  .image-accent--tl { top: -10px;   left: -10px;  }
+}

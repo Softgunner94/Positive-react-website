@@ -1,0 +1,378 @@
+/* ============================================================
+   PageHeader.css  —  DAIKOT Swiper Page Header
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --accent: #2d8a4e;
+  --accent-light: rgba(45, 138, 78, 0.85);
+  --white: #ffffff;
+  --white-80: rgba(255, 255, 255, 0.80);
+  --white-20: rgba(255, 255, 255, 0.20);
+  --white-10: rgba(255, 255, 255, 0.10);
+  --dark-overlay-start: rgba(10, 18, 12, 0.08);
+  --dark-overlay-end: rgba(10, 18, 12, 0.72);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 100vh;
+}
+
+/* ── Page Header Container ─────────────────────────────────── */
+.page-header {
+  width: 100%;
+  height: var(--header-height);
+  position: relative;
+  overflow: hidden;
+  background: #0a120c; /* fallback while image loads */
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Swiper fills the header ───────────────────────────────── */
+.header-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Slide base ────────────────────────────────────────────── */
+.swiper-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── IMAGE: the three rules for a perfect fit ──────────────── */
+.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fills box completely — no whitespace, no stretch */
+  object-position: center;     /* crops from edges, keeps subject centred          */
+  display: block;
+
+  /* Ken Burns zoom-in effect */
+  transform: scale(1.10);
+  transition: transform 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Active slide: zoom back to natural size */
+.swiper-slide-active .slide-img {
+  transform: scale(1);
+}
+
+/* ── Gradient overlay ──────────────────────────────────────── */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    168deg,
+    var(--dark-overlay-start) 0%,
+    rgba(10, 18, 12, 0.35) 40%,
+    var(--dark-overlay-end) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  text-align: center;
+}
+
+/* ── Slide content ─────────────────────────────────────────── */
+.slide-content {
+  color: var(--white);
+  animation: contentReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Badge */
+.slide-badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: fadeDown 0.7s 0.1s ease both;
+}
+
+/* Headline */
+.slide-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.25);
+  margin-bottom: 18px;
+  animation: fadeUp 0.75s 0.15s ease both;
+}
+
+/* Sub-text */
+.slide-sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--white-80);
+  max-width: 560px;
+  margin: 0 auto;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeUp 0.75s 0.25s ease both;
+  margin-bottom: 40px;
+}
+
+/* ── Bootstrap-integrated Buttons ─────────────────────────── */
+.btn-slide-primary {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  padding: 14px 34px;
+  border-radius: 50px;
+  background: var(--accent);
+  color: var(--white);
+  border: 2px solid var(--accent);
+  text-decoration: none;
+  transition:
+    background var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+  animation: fadeUp 0.75s 0.35s ease both;
+}
+
+.btn-slide-primary:hover {
+  background: #1e6b3a;
+  border-color: #1e6b3a;
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(45, 138, 78, 0.45);
+}
+
+.btn-slide-outline {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  padding: 14px 34px;
+  border-radius: 50px;
+  background: var(--white-10);
+  color: var(--white);
+  border: 2px solid var(--white-80);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition:
+    background var(--transition-base),
+    transform var(--transition-base),
+    border-color var(--transition-base);
+  animation: fadeUp 0.75s 0.42s ease both;
+}
+
+.btn-slide-outline:hover {
+  background: var(--white-20);
+  border-color: var(--white);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+/* ── Navigation Arrows ─────────────────────────────────────── */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50%;
+  background: var(--white-10) !important;
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--white-20);
+  color: var(--white) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background var(--transition-base),
+    transform var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: var(--accent-light) !important;
+  border-color: var(--accent);
+  transform: scale(1.1);
+}
+
+/* Hide the default Swiper arrows — we use our own SVGs */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none !important;
+}
+
+.swiper-button-prev { left: 28px !important; }
+.swiper-button-next { right: 28px !important; }
+
+/* ── Pagination Dots ───────────────────────────────────────── */
+.swiper-pagination {
+  bottom: 36px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--white-80) !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease, background 0.3s ease, width 0.3s ease !important;
+  border-radius: 50px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--white) !important;
+  transform: scale(1.3) !important;
+  width: 28px !important;   /* pill shape on active */
+}
+
+/* ── Progress Bar ──────────────────────────────────────────── */
+.slide-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--white-10);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.slide-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  animation: progress 3s linear infinite;
+}
+
+/* ── Scroll Indicator ──────────────────────────────────────── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--white-80);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: bounce 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.scroll-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid var(--white-80);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 2px;
+  animation: scrollWheel 1.6s ease-in-out infinite;
+}
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes contentReveal {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes scrollWheel {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .swiper-button-prev { left: 16px !important; }
+  .swiper-button-next { right: 16px !important; }
+}
+
+@media (max-width: 768px) {
+  :root { --header-height: 75vh; }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .slide-headline {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+
+  .scroll-indicator {
+    display: none; /* hide on small screens to avoid clutter */
+  }
+}
+
+@media (max-width: 480px) {
+  :root { --header-height: 65vh; }
+
+  .btn-slide-primary,
+  .btn-slide-outline {
+    padding: 12px 24px;
+    font-size: 0.88rem;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important; /* arrows hidden on mobile — swipe gesture works */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-img {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .slide-progress-bar,
+  .scroll-indicator,
+  .scroll-wheel {
+    animation: none !important;
+  }
+}

@@ -222,19 +222,20 @@
 /* ── Single Card ─────────────────────────────────────────── */
 .who-we-are__card {
   position: relative;
-  background: var(--pp-white);
+  background: var(--pp-green-light);
   border: 1px solid var(--pp-border);
   border-radius: 16px;
   padding: 36px 28px 32px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
   box-shadow: var(--pp-shadow-sm);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   overflow: hidden;
   cursor: default;
   animation: cardFadeUp 0.6s ease both;
+  
 }
 
 /* Staggered animation delays */
@@ -292,7 +293,7 @@
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: var(--pp-green-light);
+  background: var(--pp-green);
   border: 1.5px solid rgba(26, 107, 58, 0.15);
   display: flex;
   align-items: center;
@@ -302,6 +303,9 @@
   transition: background 0.25s ease, transform 0.25s ease;
   position: relative;
   z-index: 1;
+  
+  
+  
 }
 
 .who-we-are__card:hover .who-we-are__card-icon {
@@ -325,6 +329,8 @@
   color: var(--pp-text-dark);
   line-height: 1.25;
   margin: 0;
+  text-align: center;
+
 }
 
 .who-we-are__card-text {
@@ -333,6 +339,7 @@
   color: var(--pp-text-muted);
   line-height: 1.7;
   margin: 0;
+  text-align: center;
 }
 
 /* ── Card RC tag (for RC Number card) ───────────────────── */
@@ -350,6 +357,8 @@
   padding: 4px 12px;
   border-radius: 20px;
   margin-top: 2px;
+  
+
 }
 
 .who-we-are__card-tag-dot {
