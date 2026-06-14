@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { NavLink, Link } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import "./Navbar.css";
 
 // ── Navigation links — each `to` maps to a React Router route ────────────────
@@ -14,15 +12,7 @@ const NAV_LINKS = [
   { label: "Contact Us",   to: "/contact" },
 ];
 
-function services() {
-  return (
-    <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-    </DropdownButton>
-  );
-}
+
 
 
 // ── Navbar Component ──────────────────────────────────────────────────────────

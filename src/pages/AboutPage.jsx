@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 // ─────────────────────────────────────────────
 //  CONFIGURATION — swap in your own image paths
 // ─────────────────────────────────────────────
-const MISSION_IMAGE   = "/aboutimg1.jpg";   // ← replace with your src
-const VALUE_IMAGE     = "/image6.jpg";
-const GOAL_IMAGE      ="/image4.jpg";
-const VISION_IMAGE      ="/image8.jpg";
+const MISSION_IMAGE   = "/aboutimg2.png";   // ← replace with your src
+const VALUE_IMAGE     = "/img7.png";
+const GOAL_IMAGE      ="/img9.png";
+const VISION_IMAGE      ="/img8.png";
 
 
 export default function AboutPage() {

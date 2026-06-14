@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+
 import "./PageHeader.css";
 
 // ─── Slide Data ───────────────────────────────────────────────
@@ -128,16 +128,7 @@ export default function PageHeader() {
                       <span className="slide-badge">{slide.badge}</span>
                       <h1 className="slide-headline">{slide.headline}</h1>
                       <p className="slide-sub">{slide.sub}</p>
-
-                      {/* Bootstrap button group */}
-                      <div className="d-flex flex-wrap gap-3 justify-content-center mt-4">
-                        <Link to="/contact" className="btn btn-slide-primary">
-                          Request Consultation
-                        </Link>
-                        <Link to="/services" className="btn btn-slide-outline">
-                          Our Services
-                        </Link>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>

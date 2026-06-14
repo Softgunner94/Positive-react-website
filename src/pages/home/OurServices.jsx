@@ -1,4 +1,5 @@
 import "./OurServices.css";
+import { Link } from "react-router-dom"
 
 // ── Services data — matches the website image exactly ─────────────────────────
 const SERVICES = [
@@ -121,8 +122,8 @@ export default function OurServices() {
                 </ul>
 
                 {/* Learn More button */}
-                <a
-                  href={service.link}
+                <Link
+                  to="/services"
                   className="services__card-btn"
                   aria-label={`Learn more about ${service.title}`}
                 >
@@ -133,7 +134,7 @@ export default function OurServices() {
                   >
                     ›
                   </span>
-                </a>
+                </Link>
 
               </div>
             </div>

@@ -1,4 +1,5 @@
 import "./WhyChooseUs.css";
+import { Link } from "react-router-dom"
 
 // ── Benefits data — matches the website image exactly ─────────────────────────
 const BENEFITS = [
@@ -130,20 +131,20 @@ export default function WhyChooseUs() {
           </div>
 
           <div className="wcu__cta-actions">
-            <a
-              href="#consultation"
+            <Link
+              to="/contact"
               className="wcu__cta-btn-primary"
               aria-label="Request a consultation"
             >
               Request Consultation →
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              to="/services"
               className="wcu__cta-btn-secondary"
               aria-label="View our services"
             >
               Our Services
-            </a>
+            </Link>
           </div>
 
         </div>

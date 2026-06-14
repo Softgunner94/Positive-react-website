@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 // ── Quick Links data ──────────────────────────────────────────────────────────
 const QUICK_LINKS = [
-  { label: "Home",        href: "#" },
-  { label: "About Us",    href: "#about" },
-  { label: "Services",    href: "#services" },
-  { label: "Our Approach",href: "#approach" },
-  { label: "Benefits",    href: "#benefits" },
-  { label: "Contact Us",  href: "#contact" },
+   { label: "Home",         to: "/" },
+  { label: "About Us",     to: "/about" },
+  { label: "Services",     to: "/services" },
+  { label: "Our Approach", to: "/approach" },
+  { label: "Benefits",     to: "/benefits" },
+  { label: "Contact Us",   to: "/contact" },
 ];
 
 // ── Contact info data ─────────────────────────────────────────────────────────
@@ -99,7 +100,7 @@ export default function Footer() {
               {/* Logo */}
               <a className="footer-logo" href="#" aria-label="Positive Professional Services Home">
                 <div className="footer-logo__badge">
-                  <img width="200px" src="/logo1.png" alt="" />
+                  <img src="/logo1.png" alt="" />
                 </div>
               </a>
 
@@ -120,12 +121,12 @@ export default function Footer() {
               <h3 className="footer-col__heading">Quick Links</h3>
               <div className="footer-col__rule" aria-hidden="true" />
               <ul className="footer-links" aria-label="Quick navigation links">
-                {QUICK_LINKS.map(({ label, href }) => (
-                  <li key={label}>
-                    <a className="footer-links__link" href={href}>
+                {QUICK_LINKS.map(({ label, to }) => (
+                  <li key={to}>
+                    <Link className="footer-links__link" to={to}>
                       {label}
                       <span className="footer-links__chevron" aria-hidden="true">›</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
