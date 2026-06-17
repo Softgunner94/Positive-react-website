@@ -455,7 +455,7 @@
     --navbar-height:  62px;
     --total-offset:   96px;
   }
-  .navbar__logo-badge { width: 42px; height: 42px; }
+  
   .navbar__logo-letter { font-size: 22px; }
   .navbar__logo-name  { font-size: 13px; }
   .navbar__inner { padding: 0 14px; }
@@ -470,4 +470,5 @@
   .navbar__logo-sub,
   .navbar__logo-rc { display: none; }
   .navbar__cta       { display: none; }
+  
 }
