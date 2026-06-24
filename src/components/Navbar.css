@@ -288,6 +288,7 @@
 
 .navbar__hamburger-bar {
   display: block;
+  position: relative;
   width: 22px;
   height: 2px;
   background: var(--nav-green);
